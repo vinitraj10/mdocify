@@ -7,13 +7,13 @@ This is just a fun project which is written to solve a basic problem to autogene
 ### Step - 1
 **Cloning the project since its not availabe on npm registry**
 ```
-    git clone https://github.com/vinitraj10/docify
+    git clone https://github.com/vinitraj10/mdocify
 ```
 
 ### Step - 2
 **Installing all dependencies**
 ```
-    cd docify && yarn
+    cd mdocify && yarn
 ```
 
 ### Step-3
@@ -47,7 +47,7 @@ Your directory structure should look like
 
 So you need to run 
 ```
-<project>/components> docify
+<project>/components> mdocify
 ```
 on root directory like here its `components`,it will magically search for `documentation` directory which resides in your project root if you are using `docusarus-v2`.
 

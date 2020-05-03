@@ -9,7 +9,7 @@ let createFolder = "documentation";
 let fileType = "md";
 
 console.log(
-  chalk.yellow(figlet.textSync("Docify", { horizontalLayout: "full" }))
+  chalk.yellow(figlet.textSync("MDocify", { horizontalLayout: "full" }))
 );
 // needed when user input required
 // inquirer
