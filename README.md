@@ -70,4 +70,4 @@ yarn start
 
 # Disclaimer
 
-*This might not be useful to you at first glance,but if you got an idea what i am trying to do,then you can contribute in this project anytime or if you want to discuss anything related to this or ReactJs,React-Native then you can get in touch with me at twitter[!https://twitter.com/vinitraj_10]*
+*This might not be useful to you at first glance,but if you got an idea what i am trying to do,then you can contribute in this project anytime or if you want to discuss anything related to this or ReactJs,React-Native then you can get in touch with me at twitter[vinitraj_10](https://twitter.com/vinitraj_10)*
