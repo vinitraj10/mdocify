@@ -5,7 +5,7 @@ This is just a fun project which is written to solve a basic problem to autogene
 # Installation
 
 ### Step - 1
-*Cloning the project since its not availabe on npm registry*
+**Cloning the project since its not availabe on npm registry**
 ```
     git clone https://github.com/vinitraj10/docify
 ```
@@ -17,12 +17,12 @@ This is just a fun project which is written to solve a basic problem to autogene
 ```
 
 ### Step-3
-Linking the cli to the terminal,this will add symlink or path to your environment variables
+**Linking the cli to the terminal,this will add symlink or path to your environment variables**
 ```
     yarn link
 ```
 ### Step-4
-*Edit your sidebars.js of docusarus-v2 for handling the updates in sidebar*
+**Edit your sidebars.js of docusarus-v2 for handling the updates in sidebar**
 ```
     someSideBar: {
         Components: [..., /* next_doc_id */],
@@ -67,3 +67,7 @@ And at last run docusarus server to see the updates,run the following command in
 ```
 yarn start
 ```
+
+# Disclaimer
+
+*This might not be useful to you at first glance,but if you got an idea what i am trying to do,then you can contribute in this project anytime or if you want to discuss anything related to this or ReactJs,React-Native then you can get in touch with me at twitter[!https://twitter.com/vinitraj_10]*
