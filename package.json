@@ -1,0 +1,17 @@
+{
+  "name": "docify",
+  "version": "1.0.0",
+  "description": "command line tool to generate bolierplat md file of current working directory in the required folder",
+  "main": "index.js",
+  "author": "vinitraj10",
+  "license": "MIT",
+  "bin": {
+    "docify": "./cli.js"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "figlet": "^1.4.0",
+    "inquirer": "^7.1.0",
+    "touch": "^3.1.0"
+  }
+}
