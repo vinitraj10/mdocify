@@ -5,7 +5,7 @@ This is just a fun project which is written to solve a basic problem to autogene
 # Installation
 
 ## Using yarn or npm
-Using npm you would get the latest stable version of cli,But its not stable either ;)
+Using package manager you would get the latest stable version of cli,But its not stable either ;)
 ```
 yarn global add mdocify
 ```
