@@ -1,6 +1,6 @@
 {
   "name": "docify",
-  "version": "1.0.0",
+  "version": "1.0.0-rc-1",
   "description": "command line tool to generate bolierplat md file of current working directory in the required folder",
   "main": "index.js",
   "author": "vinitraj10",
