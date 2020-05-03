@@ -11,7 +11,7 @@ This is just a fun project which is written to solve a basic problem to autogene
 ```
 
 ### Step - 2
-*Installing all dependencies*
+**Installing all dependencies**
 ```
     cd docify && yarn
 ```
