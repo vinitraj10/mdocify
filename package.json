@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "vinitraj10",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinitraj10/mdocify.git"
+  },
   "bin": {
     "mdocify": "./cli.js"
   },
@@ -13,5 +17,6 @@
     "figlet": "^1.4.0",
     "inquirer": "^7.1.0",
     "touch": "^3.1.0"
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
