@@ -18,20 +18,20 @@ $ npm install -g modcify
 Using github clone you would get the latest development code of cli,which you would need to manually link to your path by using `npm` or `yarn` `link` command
 ### Step - 1
 **Cloning the project since its not availabe on npm registry**
-```
-    git clone https://github.com/vinitraj10/mdocify
+```bash
+$ git clone https://github.com/vinitraj10/mdocify
 ```
 
 ### Step - 2
 **Installing all dependencies**
-```
-    cd mdocify && yarn
+```bash
+$ cd mdocify && yarn
 ```
 
 ### Step-3
 **Linking the cli to the terminal,this will add symlink or path to your environment variables**
-```
-    yarn link
+```bash
+$ yarn link
 ```
 ### Step-4
 **Edit your sidebars.js of docusarus-v2 for handling the updates in sidebar**
@@ -58,8 +58,8 @@ Your directory structure should look like
 ```
 
 So you need to run 
-```
-<project>/components> mdocify
+```bash
+$ <project>/components> mdocify
 ```
 on root directory like here its `components`,it will magically search for `documentation` directory which resides in your project root if you are using `docusarus-v2`.
 
@@ -76,8 +76,8 @@ and it will automatically generate `.md` file for your components also `sidebars
 
 And at last run docusarus server to see the updates,run the following command in documentation folder,as docusarus lives there only
 
-```
-yarn start
+```bash
+$ yarn start
 ```
 
 # Disclaimer
