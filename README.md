@@ -6,13 +6,14 @@ This is just a fun project which is written to solve a basic problem to autogene
 
 ## Using yarn or npm
 Using package manager you would get the latest stable version of cli,But its not stable either ;)
-```
-yarn global add mdocify
-```
+
 To automatically link `mdocify` to your environment variables you would need to add it as a global package,if you install to any particular project dependencies,you might need to link it by yourself by using some commands which has been described below
 ```
-npm install -g modcify
+$ yarn global add mdocify
+# or
+$ npm install -g modcify
 ```
+
 ## Using github
 Using github clone you would get the latest development code of cli,which you would need to manually link to your path by using `npm` or `yarn` `link` command
 ### Step - 1
