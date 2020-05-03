@@ -5,13 +5,13 @@ This is just a fun project which is written to solve a basic problem to autogene
 # Installation
 
 ### Step - 1
-Cloning the project since its not availabe on npm registry
+*Cloning the project since its not availabe on npm registry*
 ```
     git clone https://github.com/vinitraj10/docify
 ```
 
 ### Step - 2
-Installing all dependencies
+*Installing all dependencies*
 ```
     cd docify && yarn
 ```
@@ -22,7 +22,7 @@ Linking the cli to the terminal,this will add symlink or path to your environmen
     yarn link
 ```
 ### Step-4
-Edit your sidebars.js of docusarus-v2 for handling the updates in sidebar
+*Edit your sidebars.js of docusarus-v2 for handling the updates in sidebar*
 ```
     someSideBar: {
         Components: [..., /* next_doc_id */],
