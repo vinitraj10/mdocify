@@ -1,7 +1,7 @@
 {
   "name": "mdocify",
   "version": "0.0.1-rc-1",
-  "description": "command line tool to generate bolierplat md file of current working directory in the required folder",
+  "description": "command line tool to generate bolierplate md files for the files or folders in the current working directory,wherever this cli runs",
   "main": "index.js",
   "author": "vinitraj10",
   "license": "MIT",
@@ -18,5 +18,16 @@
     "inquirer": "^7.1.0",
     "touch": "^3.1.0"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  
+  "keywords": [
+    "cli",
+    "docusarus",
+    "docusarusv2",
+    "v2.docusarus.io",
+    "facebook",
+    "react",
+    "react-native",
+    "automated-doc-generator",
+    "automated-cli"
+  ]
 }
