@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-const chalk = require("chalk");
-const figlet = require("figlet");
-const fs = require("fs");
+'use strict';
+const chalk = require('chalk');
+const figlet = require('figlet');
+const fs = require('fs');
 // const inquirer = require("inquirer");
-const path = require("path");
+const path = require('path');
 
-let createFolder = "documentation";
-let fileType = "md";
+let createFolder = 'documentation';
 
 console.log(
-  chalk.yellow(figlet.textSync("MDocify", { horizontalLayout: "full" }))
+  chalk.yellow(figlet.textSync('MDocify', { horizontalLayout: 'full' }))
 );
 // needed when user input required
 // inquirer
@@ -52,10 +52,10 @@ let found = false;
 // will be used for iterating the path
 let currentPath = process.cwd();
 // will be used to terminate the loop
-let prevPath = "";
+let prevPath = '';
 // will be used to create files for the ones
 // whose docs has not been there
-let docRootPath = "";
+let docRootPath = '';
 // reading current directory
 while (!found && currentPath !== prevPath) {
   // getting the list of files in the current path
@@ -64,14 +64,14 @@ while (!found && currentPath !== prevPath) {
   // until it gets end
   const files = fs.readdirSync(currentPath);
   if (files.includes(createFolder)) {
-    console.log(chalk.green("Great found documentation in your project"));
+    console.log(chalk.green('Great found documentation in your project'));
     docRootPath = currentPath;
     found = true;
   }
   prevPath = currentPath;
-  currentPath = path.resolve(currentPath, "../");
+  currentPath = path.resolve(currentPath, '../');
 }
-console.log("documentation located at", docRootPath);
+console.log('documentation located at', docRootPath);
 if (found) {
   const docPath = `${docRootPath}/${createFolder}/docs`;
   const docFiles = fs.readdirSync(docPath);
@@ -80,7 +80,7 @@ if (found) {
   currentFiles.forEach((item) => {
     // only doc file will be generated if that is component
     // not for package.json or index.tsx or something
-    const docAllowed = item.split(".").length === 1 && item !== "node_modules";
+    const docAllowed = item.split('.').length === 1 && item !== 'node_modules';
     if (docAllowed) {
       // if doc is not created yet,then generate the boilerplate
       // doc file for that component
@@ -106,7 +106,7 @@ if (found) {
 
         // registerting create markdown file to the sidebar.js
         const sideBarFile = `${docRootPath}/${createFolder}/sidebars.js`;
-        const sideBarData = fs.readFileSync(sideBarFile, "utf-8");
+        const sideBarData = fs.readFileSync(sideBarFile, 'utf-8');
         // async version of reading file
         // fs.readFile(sideBarFile, "utf8", (err, data) => {
         //   if (err) throw err;
@@ -119,11 +119,11 @@ if (found) {
         // so that a new content can easily updated
         const newDocId = `, '${doc_id}' /* next_doc_id */`;
         const updatedSideBarData = sideBarData.replace(
-          "/* next_doc_id */",
+          '/* next_doc_id */',
           newDocId
         );
         console.log(updatedSideBarData);
-        fs.writeFileSync(sideBarFile, updatedSideBarData, "utf-8");
+        fs.writeFileSync(sideBarFile, updatedSideBarData, 'utf-8');
         console.log(chalk.cyanBright(`Sidebar updated for ${item}`));
         // async version of writting content to file
         // fs.writeFile(sideBarFile, updatedData, function (err) {
@@ -138,6 +138,6 @@ if (found) {
   });
 } else {
   console.log(
-    chalk.red("Oops! no documentation found in your root directory!")
+    chalk.red('Oops! no documentation found in your root directory!')
   );
 }
