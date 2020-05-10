@@ -64,14 +64,14 @@ while (!found && currentPath !== prevPath) {
   // until it gets end
   const files = fs.readdirSync(currentPath);
   if (files.includes(createFolder)) {
-    console.log(chalk.green('Great found documentation in your project'));
+    console.log(chalk.green('Great!! found documentation in your project'));
     docRootPath = currentPath;
     found = true;
   }
   prevPath = currentPath;
   currentPath = path.resolve(currentPath, '../');
 }
-console.log('documentation located at', docRootPath);
+// console.log('documentation located at', docRootPath);
 if (found) {
   const docPath = `${docRootPath}/${createFolder}/docs`;
   const docFiles = fs.readdirSync(docPath);
@@ -122,7 +122,6 @@ if (found) {
           '/* next_doc_id */',
           newDocId
         );
-        console.log(updatedSideBarData);
         fs.writeFileSync(sideBarFile, updatedSideBarData, 'utf-8');
         console.log(chalk.cyanBright(`Sidebar updated for ${item}`));
         // async version of writting content to file
@@ -138,6 +137,6 @@ if (found) {
   });
 } else {
   console.log(
-    chalk.red('Oops! no documentation found in your root directory!')
+    chalk.red('Oops! no documentation found in your root directory!,Make sure docasaurus is set up in your root directory')
   );
 }
