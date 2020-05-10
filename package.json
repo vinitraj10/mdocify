@@ -1,6 +1,6 @@
 {
   "name": "mdocify",
-  "version": "0.0.1-rc-1",
+  "version": "0.1.0-0",
   "description": "command line tool to generate bolierplate md files for the files or folders in the current working directory,wherever this cli runs",
   "main": "index.js",
   "author": "vinitraj10",
@@ -8,9 +8,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vinitraj10/mdocify.git"
-  },
-  "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "bin": {
     "mdocify": "./src/cli.js"
@@ -33,20 +30,6 @@
     "automated-cli"
   ],
   "devDependencies": {
-    "eslint": "^7.0.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.2",
     "prettier": "^2.0.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
   }
 }
