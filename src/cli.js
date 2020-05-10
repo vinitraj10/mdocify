@@ -9,7 +9,7 @@ const path = require('path');
 let createFolder = 'documentation';
 
 console.log(
-  chalk.yellow(figlet.textSync('MDocify', { horizontalLayout: 'full' }))
+  chalk.yellow(figlet.textSync('MDocify', { horizontalLayout: 'full' })),
 );
 // needed when user input required
 // inquirer
@@ -64,19 +64,22 @@ while (!found && currentPath !== prevPath) {
   // until it gets end
   const files = fs.readdirSync(currentPath);
   if (files.includes(createFolder)) {
-    console.log(chalk.green('Great!! found documentation in your project'));
     docRootPath = currentPath;
     found = true;
   }
   prevPath = currentPath;
   currentPath = path.resolve(currentPath, '../');
 }
-// console.log('documentation located at', docRootPath);
 if (found) {
   const docPath = `${docRootPath}/${createFolder}/docs`;
   const docFiles = fs.readdirSync(docPath);
   const currentFiles = fs.readdirSync(process.cwd());
-  // console.log("doc files",docFiles,currentFiles);
+  // assuming that docs folder is up to date as of now
+  // as per the current codebase.
+  let isDocUpdated = true;
+  // iterating over current working files to match whether
+  // their respective doc file has generated or not,if not
+  // we will create it or else we continue.
   currentFiles.forEach((item) => {
     // only doc file will be generated if that is component
     // not for package.json or index.tsx or something
@@ -86,18 +89,15 @@ if (found) {
       // doc file for that component
       const docFileName = `${item.toLowerCase()}.md`;
       if (!docFiles.includes(docFileName)) {
+        // setting to false so that user won't get the message
+        // if the doc is not updated to the codebase.
+        isDocUpdated = false;
         console.log(chalk.blueBright(`Creating doc file for ${item} ...`));
         // content of a boilerplate markdown file
         const doc_id = item.toLowerCase();
-        // copying these because can be
-        // customize ahead
         const doc_title = item;
         const doc_sidebar_label = item;
         const docBaseContent = `---\nid: ${doc_id}\ntitle: ${doc_title}\nsidebar_label: ${doc_sidebar_label}\n---`;
-        // fs.appendFile(, docBaseContent, (error) => {
-        //   if (error) throw error;
-        // });
-
         // creating md files under docs directory
         const markdownPath = `${docPath}/${docFileName}`;
         fs.appendFileSync(markdownPath, docBaseContent);
@@ -107,12 +107,6 @@ if (found) {
         // registerting create markdown file to the sidebar.js
         const sideBarFile = `${docRootPath}/${createFolder}/sidebars.js`;
         const sideBarData = fs.readFileSync(sideBarFile, 'utf-8');
-        // async version of reading file
-        // fs.readFile(sideBarFile, "utf8", (err, data) => {
-        //   if (err) throw err;
-        //   console.log(data);
-        //   sideBarData = data;
-        // });
 
         // we detect where to add new content by this comment
         // and on every new content added we should add this
@@ -120,23 +114,22 @@ if (found) {
         const newDocId = `, '${doc_id}' /* next_doc_id */`;
         const updatedSideBarData = sideBarData.replace(
           '/* next_doc_id */',
-          newDocId
+          newDocId,
         );
         fs.writeFileSync(sideBarFile, updatedSideBarData, 'utf-8');
         console.log(chalk.cyanBright(`Sidebar updated for ${item}`));
-        // async version of writting content to file
-        // fs.writeFile(sideBarFile, updatedData, function (err) {
-        //   if (err) throw err;
-        //   console.log(
-        //     chalk.cyanBright(`Sidebar updated for ${item}`),
-        //     updatedData
-        //   );
-        // });
       }
     }
   });
+  // if no new files added in the codebase and docs folder contains all the
+  // respective doc file then notifying user that doc is up to date.
+  if(isDocUpdated) {
+    console.log(chalk.green('Hola! your documentation is already up to date!'))
+  }
 } else {
   console.log(
-    chalk.red('Oops! no documentation found in your root directory!,Make sure docasaurus is set up in your root directory')
+    chalk.red(
+      'Oops! no documentation found in your root directory!,Make sure docasaurus is set up in your root directory',
+    ),
   );
 }
