@@ -77,26 +77,36 @@ if (found) {
   // assuming that docs folder is up to date as of now
   // as per the current codebase.
   let isDocUpdated = true;
+  // never generate doc for these
+  const notAllowed = [
+    'package',
+    'node_modules',
+    'index'
+  ];
   // iterating over current working files to match whether
   // their respective doc file has generated or not,if not
   // we will create it or else we continue.
   currentFiles.forEach((item) => {
-    // only doc file will be generated if that is component
-    // not for package.json or index.tsx or something
-    const docAllowed = item.split('.').length === 1 && item !== 'node_modules';
-    if (docAllowed) {
+    // item could be a folder of a particular component
+    // or can be a js or ts files,we need to generate doc
+    // for them.
+    
+    // splitting over . to get the fileName of current file
+    const fileName = item.split('.')[0];
+    // if the current item is not inclued in not allowed files
+    if (!notAllowed.includes(fileName)) {
       // if doc is not created yet,then generate the boilerplate
       // doc file for that component
-      const docFileName = `${item.toLowerCase()}.md`;
+      const docFileName = `${fileName.toLowerCase()}.md`;
       if (!docFiles.includes(docFileName)) {
         // setting to false so that user won't get the message
         // if the doc is not updated to the codebase.
         isDocUpdated = false;
-        console.log(chalk.blueBright(`Creating doc file for ${item} ...`));
+        console.log(chalk.blueBright(`Creating doc file for ${fileName} ...`));
         // content of a boilerplate markdown file
-        const doc_id = item.toLowerCase();
-        const doc_title = item;
-        const doc_sidebar_label = item;
+        const doc_id = fileName.toLowerCase();
+        const doc_title = fileName;
+        const doc_sidebar_label = fileName;
         const docBaseContent = `---\nid: ${doc_id}\ntitle: ${doc_title}\nsidebar_label: ${doc_sidebar_label}\n---`;
         // creating md files under docs directory
         const markdownPath = `${docPath}/${docFileName}`;
@@ -123,8 +133,8 @@ if (found) {
   });
   // if no new files added in the codebase and docs folder contains all the
   // respective doc file then notifying user that doc is up to date.
-  if(isDocUpdated) {
-    console.log(chalk.green('Hola! your documentation is already up to date!'))
+  if (isDocUpdated) {
+    console.log(chalk.green('Hola! your documentation is already up to date!'));
   }
 } else {
   console.log(
